@@ -1,0 +1,5 @@
+{
+  "server": {
+    "httpPort": 8008
+  }
+}

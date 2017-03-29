@@ -1,16 +1,19 @@
 {
   "name": "last-fm-ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Front-end app for the RedBalloon technical test",
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build; node .",
+    "build": "webpack --progress",
     "dev": "webpack-dev-server --content-base ./public --inline --hot --colors --port 8010 --history-api-fallback"
   },
   "author": "Ruchira Jayasekara <ruchira088@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
+    "express": "^4.15.2",
     "isoc": "0.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
