@@ -10,8 +10,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route component={PageContainer}>
             <Route path="/" component={Search}/>
-            <Route path="/country/:country" component={TopArtists}/>
-            <Route path="/artist/:artist" component={Artist}/>
+            <Route path="/country/:primaryTerm" component={TopArtists}/>
+            <Route path="/artist/:primaryTerm" component={Artist}/>
         </Route>
     </Router>,
     document.getElementById("app")
