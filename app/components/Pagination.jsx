@@ -14,7 +14,7 @@ const gotoPage = ({pathname, query}, pageIndexMapper) => event =>
     const {page = 1} = query
 
     const nextPage = pageIndexMapper(Number(page))
-    const queryParams = Object.assign({}, query, {page: nextPage})
+    const queryParams = Object.assign({}, query, {page: nextPage > 0 ? nextPage : 1})
 
     browserHistory.push(`${pathname}?${flattenQuery(queryParams)}`)
 }

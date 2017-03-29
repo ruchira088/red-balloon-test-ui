@@ -1,6 +1,9 @@
 import React from "react"
+import Select from "react-select"
+import countries from "isoc"
 import {browserHistory} from "react-router"
 
+import "react-select/dist/react-select.css";
 import "styles/search.scss"
 
 export default React.createClass(
@@ -8,26 +11,46 @@ export default React.createClass(
     getInitialState()
     {
         return {
-            searchText: ""
+            selected: null,
+            options: []
         }
+    },
+
+    componentDidMount()
+    {
+        const options = countries.map(({name: {short}}) => ({label: short, value: short.toLowerCase()}))
+        this.setState({options})
     },
 
     onSearchButtonClick(event)
     {
         event.preventDefault()
 
-        const {searchText} = this.state
-        browserHistory.push(`/country/${searchText}`)
+        const {selected} = this.state
+
+        if(selected != null)
+        {
+            browserHistory.push(`/country/${selected.value}`)
+        } else
+        {
+            alert("Please select a valid country")
+        }
     },
 
-    onTextChange({target})
+    onChange(selected)
     {
-        this.setState({searchText: target.value})
+        if(Array.isArray(selected))
+        {
+            this.setState({selected: null})
+        } else
+        {
+            this.setState({selected})
+        }
     },
 
     render()
     {
-        const {searchText} = this.state
+        const {selected, options} = this.state
 
         return (
             <div className="search">
@@ -35,9 +58,13 @@ export default React.createClass(
                     Search by country
                 </div>
                 <div className="search-body">
-                    <div className="search-input">
-                        <input className="input-field" value={searchText} onChange={this.onTextChange}/>
-                    </div>
+                    <Select
+                        className="search-input"
+                        value={selected}
+                        options={options}
+                        onChange={this.onChange}
+                        placeholder="Enter country"
+                    />
                 </div>
                 <div className="search-footer">
                     <button className="search-button" onClick={this.onSearchButtonClick}>
