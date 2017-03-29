@@ -5,8 +5,8 @@ import SongResult from "../components/SongResult.jsx";
 
 export default props =>
 {
-    const itemMapper = ({name, imageUrl}, index) => (
-        <SongResult name={name} imageUrl={imageUrl} key={index}/>
+    const itemMapper = ({name}, index) => (
+        <SongResult name={name} key={index}/>
     )
 
     return (

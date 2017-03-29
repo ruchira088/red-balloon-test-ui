@@ -1,0 +1,10 @@
+@mixin result()
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #888888;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}

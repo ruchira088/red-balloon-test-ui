@@ -1,13 +1,11 @@
 import React from "react"
+import "styles/song-result.scss"
 
-export default ({name, imageUrl}) =>
+export default ({name}) =>
 (
     <div className="song-result">
         <div className="song-name">
             { name }
-        </div>
-        <div className="album-art">
-            <img src={imageUrl} alt="Album art"/>
         </div>
     </div>
 )

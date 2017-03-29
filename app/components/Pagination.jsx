@@ -1,5 +1,5 @@
 import React from "react"
-import {browserHistory} from "react-router"
+import {Link, browserHistory} from "react-router"
 
 import "styles/pagination.scss"
 
@@ -24,10 +24,13 @@ const gotoPage = ({pathname, query}, pageIndexMapper) => event =>
 const PaginationControls = ({location}) =>
 (
     <div className="pagination-controls">
-        <button className="pagination-button" onClick={gotoPage(location, index => index - 1)}>
+        <button className="previous-button pagination-button" onClick={gotoPage(location, index => index - 1)}>
             Previous
         </button>
-        <button className="pagination-button" onClick={gotoPage(location, index => index + 1)}>
+        <Link className="home-button" to="/">
+            Home
+        </Link>
+        <button className="next-button pagination-button" onClick={gotoPage(location, index => index + 1)}>
             Next
         </button>
     </div>

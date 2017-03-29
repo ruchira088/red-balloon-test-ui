@@ -1,0 +1,11 @@
+@import "common";
+
+.song-result
+{
+    @include result();
+
+    .song-name
+    {
+        font-size: 30px;
+    }
+}
