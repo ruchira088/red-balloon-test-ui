@@ -1,5 +1,12 @@
 {
   "server": {
     "httpPort": 8008
+  },
+  "services": {
+    "music": {
+      "host": "http://localhost",
+      "port": 8000,
+      "baseUrl": "last-fm"
+    }
   }
 }

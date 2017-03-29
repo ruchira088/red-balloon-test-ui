@@ -1,8 +1,11 @@
 import axios from "axios"
+import {services} from "../../config.json"
 import {takeLast} from "../helpers/object"
 
+const {host, port, baseUrl} = services.music
+
 const performQuery = (path, page, limit) =>
-    axios.get(`http://localhost:8000/last-fm/${path}?page=${page}&limit=${limit}`)
+    axios.get(`${host}:${port}/${baseUrl}/${path}?page=${page}&limit=${limit}`)
         .then(({data}) => data)
 
 export const getTopArtists = (country, page, limit) =>
