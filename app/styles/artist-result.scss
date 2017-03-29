@@ -1,0 +1,28 @@
+.artist-result
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #888888;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover
+    {
+        transition: all 0.5s ease;
+        box-shadow: 0 0 20px #888888;
+        transform: scale(1.1, 1.1);
+    }
+
+    .artist-name, .artist-image
+    {
+        flex: 1;
+    }
+
+    .artist-name
+    {
+        font-size: 30px;
+    }
+}

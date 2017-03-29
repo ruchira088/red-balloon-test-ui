@@ -1,6 +1,8 @@
 import React from "react"
 import {browserHistory} from "react-router"
 
+import "styles/pagination.scss"
+
 const flattenQuery = query => Object.keys(query).reduce((output, key) =>
 {
     const value = `${key}=${query[key]}`;

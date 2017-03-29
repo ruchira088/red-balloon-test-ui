@@ -63,7 +63,7 @@ export default React.createClass(
                         value={selected}
                         options={options}
                         onChange={this.onChange}
-                        placeholder="Enter country"
+                        placeholder="Type a country"
                     />
                 </div>
                 <div className="search-footer">

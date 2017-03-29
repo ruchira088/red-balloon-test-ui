@@ -1,6 +1,8 @@
 import React from "react"
 import {browserHistory} from "react-router"
 
+import "styles/artist-result.scss"
+
 const artistOnClick = name => event =>
 {
     event.preventDefault()

@@ -1,5 +1,4 @@
 import React from "react"
-import {resultMapper} from "../helpers/results"
 import Pagination from "./Pagination.jsx"
 
 export default React.createClass(
@@ -34,9 +33,9 @@ export default React.createClass(
         const {limit = 5} = location.query
 
         fetchItems(params.primaryTerm, page, limit)
-            .then(items =>
+            .then(results =>
             {
-                this.setState({results: resultMapper(items)})
+                this.setState({results})
             })
     },
 
