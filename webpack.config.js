@@ -12,8 +12,27 @@ module.exports = {
         rules: [
             {
                 test: /\.(jsx|js)$/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                loader: "file-loader?name=images/[name].[ext]"
             }
         ]
+    },
+    resolve: {
+        alias: {
+            styles: path.join(__dirname, "app", "styles"),
+            assets: path.join(__dirname, "app", "assets")
+        }
     }
 }

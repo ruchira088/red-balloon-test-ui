@@ -1,7 +1,7 @@
 import React from "react"
-import {getTopTracksForArtist} from "../services/music"
+import {getTopArtists} from "../services/music"
 import {resultMapper} from "../helpers/results"
-import SongResult from "../components/SongResult.jsx"
+import ArtistResult from "../components/ArtistResult.jsx"
 import Pagination from "../components/Pagination.jsx"
 
 export default React.createClass(
@@ -9,14 +9,14 @@ export default React.createClass(
     getInitialState()
     {
         return {
-            tracks: []
+            searchResults: []
         }
     },
 
     componentDidMount()
     {
         const {page} = this.props.location.query
-        this.fetchTracks(page)
+        this.fetchTopArtists(page)
     },
 
     componentWillReceiveProps(newProps)
@@ -26,38 +26,37 @@ export default React.createClass(
 
         if(newPage != page)
         {
-            this.fetchTracks(newPage)
+            this.fetchTopArtists(newPage)
         }
     },
 
-    fetchTracks(page = 1)
+    fetchTopArtists(page = 1)
     {
         const {params, location} = this.props
         const {limit = 5} = location.query
 
-        getTopTracksForArtist(params.artist, page, limit)
+        getTopArtists(params.country, page, limit)
             .then(results =>
             {
-                this.setState({tracks: resultMapper(results)})
+                this.setState({searchResults: resultMapper(results)})
             })
     },
 
     render()
     {
-        const {tracks} = this.state
+        const {searchResults} = this.state
         const {location} = this.props
 
-        const songTracks = tracks.map(({name, imageUrl}, index) =>
-            <SongResult name={name} imageUrl={imageUrl} key={index}/>
+        const results = searchResults.map(({name, imageUrl}, index) =>
+            <ArtistResult name={name} imageUrl={imageUrl} key={index}/>
         )
 
         return (
-            <div className="artist">
+            <div className="top-artists">
                 <Pagination location={location}>
-                    { songTracks }
+                    { results }
                 </Pagination>
             </div>
         )
     }
-
 })

@@ -1,0 +1,41 @@
+.search
+{
+    .search-header
+    {
+        font-size: 32px;
+    }
+
+    .search-body
+    {
+        margin: 20px;
+
+        .search-input
+        {
+            .input-field
+            {
+                width: 50%;
+                font-size: 24px;
+                padding: 10px;
+            }
+        }
+    }
+
+    .search-footer
+    {
+        .search-button
+        {
+            font-size: 24px;
+            padding: 10px 30px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+
+            &:hover
+            {
+                opacity: 0.8;
+                border: 1px solid black;
+            }
+        }
+
+    }
+}

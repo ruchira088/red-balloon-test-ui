@@ -1,6 +1,8 @@
 import React from "react"
 import {browserHistory} from "react-router"
 
+import "styles/search.scss"
+
 export default React.createClass(
 {
     getInitialState()
@@ -34,7 +36,7 @@ export default React.createClass(
                 </div>
                 <div className="search-body">
                     <div className="search-input">
-                        <input value={searchText} onChange={this.onTextChange}/>
+                        <input className="input-field" value={searchText} onChange={this.onTextChange}/>
                     </div>
                 </div>
                 <div className="search-footer">
