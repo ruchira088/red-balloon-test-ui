@@ -13,6 +13,8 @@ export default props => {
         )
     }
 
+    window.searchPage = window.location.href
+
     return (
         <Results {...props} fetchItems={getTopArtists} itemMapper={itemMapper}/>
     )

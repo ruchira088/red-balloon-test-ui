@@ -7,6 +7,21 @@ import "styles/artist.scss"
 
 const formatName = artistName => artistName.split("+").join(" ")
 
+const BackToSearchResults = () =>
+{
+    if(window.searchPage != undefined)
+    {
+        return (
+            <div className="search-results-link-container">
+                <a className="search-results-link" href={window.searchPage}> Back To Search Results</a>
+            </div>
+        )
+    } else
+    {
+        return null
+    }
+}
+
 export default props =>
 {
     const itemMapper = ({name}, index) => (
@@ -20,6 +35,7 @@ export default props =>
             <div className="artist-title">
                 { artistName }
             </div>
+            <BackToSearchResults/>
             <Results {...props} fetchItems={getTopTracksForArtist} itemMapper={itemMapper}/>
         </div>
     )
