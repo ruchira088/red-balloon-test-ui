@@ -12,7 +12,7 @@
   "author": "Ruchira Jayasekara <ruchira088@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^1.7.6",
     "express": "^4.15.2",
     "isoc": "0.0.1",
     "react": "^15.4.2",
@@ -27,10 +27,10 @@
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.27.3",
     "file-loader": "^0.10.1",
-    "node-sass": "^4.5.2",
+    "node-sass": "^9.0.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
-    "webpack": "^2.3.2",
-    "webpack-dev-server": "^2.4.2"
+    "webpack": "^5.94.0",
+    "webpack-dev-server": "^5.0.4"
   }
 }
